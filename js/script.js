@@ -21,14 +21,10 @@ let weather = {
     document.querySelector(".description").innerText = description;
     document.querySelector(".temp").innerText = temp + "°C";
     document.querySelector(".humidity").innerText =
-      "湿度: " + humidity + "%";
+      "humidity: " + humidity + "%";
     document.querySelector(".wind").innerText =
-      "风速: " + speed + " km/h";
+      "wind speed: " + speed + " km/h";
     document.querySelector(".weather").classList.remove("loading");
-    document.body.style.backgroundImage =
-      "url('https://source.unsplash.com/1600x900/?city " + name + "')";
-    document.body.style.backgroundRepeat = "none";
-    document.body.style.backgroundSize = "100";
     document.body.style.width = "100%";
     document.body.style.height = "100%";
     document.body.style.backgroundRepeat = "no-repeat";
