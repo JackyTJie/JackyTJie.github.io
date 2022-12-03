@@ -7,19 +7,10 @@
   </head>
   <body>
   <script>
-function myFunction()
-{
-    alert("HOW HANDSOME JACKYTANG IS！");
-}
 </script>
   <body bgcolor="EEEEEE">
-  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">HELLO WORLD!</h1><div class="big-title"><span id="iwgq">TANGJIE.XYZ</span></div><div align="center">Email address: tang.jie@live.com</div><div align="center"><input type="button" onclick="myFunction()"  value="Pop-up display"></div><div align="center"></div></div></div></div>
-<div align="center">
-  <p id="demo">click this button and get your location：</p>
-</div>
-<div align="center">
-<button onclick="getLocation()">TRY</button>
-</div>
+  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">HELLO WORLD!</h1><div class="big-title"><span id="iwgq">TANGJIE.XYZ</span></div><div align="center">Email address: tang.jie@live.com</div><div align="center"><input type="button" onclick="getLocation()" value="Get Your Location"></div><div align="center"></div></div></div></div>
+
 
 <script>
 var x=document.getElementById("demo");
@@ -33,8 +24,9 @@ function getLocation()
   }
 function showPosition(position)
   {
-  x.innerHTML="Latitude: " + position.coords.latitude + 
-  "<br />Longitude: " + position.coords.longitude;	
+
+  alert("Latitude: " + position.coords.latitude + 
+  " Longitude: " + position.coords.longitude);
   }
 </script>
 
@@ -81,7 +73,7 @@ function showPosition(position)
                     </button>
                 </div>
                 <div class="weather loading">
-    				<div class="other">注意：请输入城市名拼音，首字母大写</div>
+    				<div class="other">Note: Please enter the city name in pinyin, with the first letter capitalized</div>
                     <h2 class="city">Weather in Shanghai</h2>
                     <h1 class="temp">21°C</h1>
                     <div class="flex">
