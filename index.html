@@ -9,26 +9,26 @@
   <script>
 </script>
   <body bgcolor="EEEEEE">
-  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">HELLO WORLD!</h1><div class="big-title"><span id="iwgq">TANGJIE.XYZ</span></div><div align="center">Email address: tang.jie@live.com</div><div align="center"><input type="button" onclick="getLocation()" value="Get Your Location"></div><div align="center"></div></div></div></div>
+  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">HELLO WORLD!</h1><div class="big-title"><span id="iwgq">TANGJIE.XYZ</span></div><div align="center">Email address: tang.jie@live.com</div><div align="center"><input type="button" onclick="window.location.href='http://tangjie.xyz/newyear'" value="Happy New Year!"></div><div align="center"></div></div></div></div>
 
 
-<script>
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
-  }
-function showPosition(position)
-  {
-
-  alert("Latitude: " + position.coords.latitude + 
-  " \nLongitude: " + position.coords.longitude);
-  }
-</script>
+#<script>
+#var x=document.getElementById("demo");
+#function getLocation()
+#  {
+#  if (navigator.geolocation)
+#    {
+#    navigator.geolocation.getCurrentPosition(showPosition);
+#    }
+#  else{x.innerHTML="Geolocation is not supported by this browser.";}
+#  }
+#function showPosition(position)
+#  {
+#
+#  alert("Latitude: " + position.coords.latitude + 
+#  " \nLongitude: " + position.coords.longitude);
+#  }
+#</script>
 
 <head>
     <meta charset="UTF-8" />
@@ -81,8 +81,8 @@ function showPosition(position)
                         <div class="description">多云</div>
                     </div>
                     <div class="other">
-                        <div class="humidity">湿度: 60%</div>
-                        <div class="wind">风速: 6.2 km/h</div>
+                        <div class="humidity">humidity: 60%</div>
+                        <div class="wind">wind: 6.2 km/h</div>
                     </div>
                 </div>
             </div>
