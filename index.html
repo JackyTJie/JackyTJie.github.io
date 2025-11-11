@@ -2,73 +2,516 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8" />
-    <title>TANGJIE</title>
+    <title>TANGJIE - Personal Portfolio</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <meta name="keywords" content="TANGJIE, portfolio, SJTU, programming" />
+    <meta name="keywords" content="TANGJIE, portfolio, SJTU, programming, developer" />
     <meta name="description" content="Personal website of TANGJIE - Student at SJTU passionate about programming, cycling and meeting new people." />
     <link rel="icon" href="data/R-C.jfif" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://tangjie.xyz/css/style.css" />
     <link rel="stylesheet" href="https://tangjie.xyz/css/style2.css" />
+    <style>
+        /* Additional styles for enhanced design */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 252, 153, 0.9);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .nav-logo a {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #1890ff;
+        }
+        
+        section {
+            margin: 80px 0;
+            scroll-margin-top: 70px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .skill {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .skill-bar {
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: #1890ff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-size: 0.8em;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .project-card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .project-tags {
+            margin-top: 10px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #1890ff;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-right: 5px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .gallery-item {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .skill-pie {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .pie-chart {
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .pie-background {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #e6e6e6;
+        }
+        
+        .pie-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip: rect(0, 150px, 150px, 75px);
+        }
+        
+        .pie-fill:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip: rect(0, 150px, 150px, 75px);
+            background: #1890ff;
+            transform-origin: center;
+            transform: rotate(0deg);
+        }
+        
+        .pie-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+        }
+        
+        .pie-center .percent {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .pie-center p {
+            margin: 0;
+            font-weight: 500;
+            color: #666;
+        }
+        
+        /* Specific pie rotations */
+        .pie-chart[data-percent="85"] .pie-fill:after {
+            transform: rotate(306deg); /* 85% of 360 degrees */
+        }
+        
+        .pie-chart[data-percent="75"] .pie-fill:after {
+            transform: rotate(270deg); /* 75% of 360 degrees */
+        }
+        
+        .pie-chart[data-percent="80"] .pie-fill:after {
+            transform: rotate(288deg); /* 80% of 360 degrees */
+        }
+        
+        .pie-chart[data-percent="90"] .pie-fill:after {
+            transform: rotate(324deg); /* 90% of 360 degrees */
+        }
+        
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .social-links {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .social-link {
+            display: inline-block;
+            background: #1890ff;
+            color: white;
+            padding: 8px 16px;
+            margin: 5px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #40a9ff;
+        }
+        
+        .blog-container {
+            margin-top: 20px;
+        }
+        
+        .blog-post {
+            background: #f5f5f5;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .blog-date {
+            color: #666;
+            font-size: 0.9em;
+            margin: 5px 0;
+        }
+        
+        footer {
+            background: #f5f5f5;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .hero, .about, .skills, .projects, .gallery, .contact, .blog {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
     <script src="https://tangjie.xyz/js/script.js" defer></script>
 </head>
 <body bgcolor="EEEEEE" onload="myFunction()">
     <!-- Background animation -->
     <script color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="http://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#home">TANGJIE.XYZ</a>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
     <!-- Loading screen -->
     <div id="loading"></div>
-    
+
     <!-- Main content container -->
     <main>
-        <!-- Welcome section -->
-        <div class="panel">
-            <h1 class="welcome">HELLO WORLD!</h1>
-            <div class="big-title">
-                <span id="iwgq">TANGJIE.XYZ</span>
+        <!-- Welcome/Hero section -->
+        <section id="home" class="hero">
+            <div class="panel">
+                <h1 class="welcome">HELLO WORLD!</h1>
+                <div class="big-title">
+                    <span id="iwgq">TANGJIE.XYZ</span>
+                </div>
+                <div align="center">Email address: <a href="mailto:tang.jie@live.com">tang.jie@live.com</a></div>
             </div>
-            <div align="center">Email address: <a href="mailto:tang.jie@live.com">tang.jie@live.com</a></div>
-        </div>
-        
+        </section>
+
         <!-- About section -->
-        <div class="panel">
-            <h1 class="welcome">Self Introduction</h1>
-            <div align="center">
-                <p>Hi, I'm a student from SJTU. I love programming, cycling and meeting new people. I also enjoy digital hoarding, so I have many resouces of films, musics, and games. Welcome everyone to contact me for resources or just to chat!</p>
+        <section id="about" class="about">
+            <div class="panel">
+                <h1 class="welcome">Self Introduction</h1>
+                <div align="center">
+                    <p>Hi, I'm a student from SJTU. I love programming, cycling and meeting new people. I also enjoy digital hoarding, so I have many resouces of films, musics, and games. Welcome everyone to contact me for resources or just to chat!</p>
+                </div>
             </div>
-        </div>
-        
+        </section>
+
+        <!-- Skills section -->
+        <section id="skills" class="skills">
+            <div class="panel">
+                <h1 class="welcome">My Skills</h1>
+                <div class="skills-container">
+                    <div class="skills-grid">
+                        <div class="skill-pie">
+                            <div class="pie-chart" data-percent="85">
+                                <div class="pie-background"></div>
+                                <div class="pie-fill"></div>
+                                <div class="pie-center">
+                                    <span class="percent">85%</span>
+                                    <p>Programming</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-pie">
+                            <div class="pie-chart" data-percent="75">
+                                <div class="pie-background"></div>
+                                <div class="pie-fill"></div>
+                                <div class="pie-center">
+                                    <span class="percent">75%</span>
+                                    <p>Web Dev</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-pie">
+                            <div class="pie-chart" data-percent="80">
+                                <div class="pie-background"></div>
+                                <div class="pie-fill"></div>
+                                <div class="pie-center">
+                                    <span class="percent">80%</span>
+                                    <p>Problem Solving</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="skill-pie">
+                            <div class="pie-chart" data-percent="90">
+                                <div class="pie-background"></div>
+                                <div class="pie-fill"></div>
+                                <div class="pie-center">
+                                    <span class="percent">90%</span>
+                                    <p>Cycling</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects section -->
+        <section id="projects" class="projects">
+            <div class="panel">
+                <h1 class="welcome">My Projects</h1>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Web Portfolio</h3>
+                        <p>A personal website to showcase projects and skills.</p>
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>SJTU跑步打卡上传工具</h3>
+                        <p><a href="https://github.com/JackyTJie/SJTURunningMan_Advanced_Edition" target="_blank">GitHub Repository</a></p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">工具</span>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <h3>基于Python Djingo编写的移动端论坛</h3>
+                        <p><a href="https://github.com/JackyTJie/Djingo-school-forum" target="_blank">GitHub Repository</a></p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">Django</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery section -->
+        <section id="gallery" class="gallery">
+            <div class="panel">
+                <h1 class="welcome">Gallery</h1>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="gallery/1.jpg" alt="Gallery item 1" />
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery/2.jpg" alt="Gallery item 2" />
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery/3.jpg" alt="Gallery item 3" />
+                    </div>
+                    <div class="gallery-item">
+                        <img src="gallery/4.jpg" alt="Gallery item 4" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Weather widget section -->
-        <div class="two">
-            <div class="card">
-                <div class="search">
-                    <input type="text" class="search-bar" placeholder="Search city..." aria-label="Search city for weather" />
-                    <button aria-label="Search weather">
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1.5em" xmlns="https://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
-                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-                <div class="weather loading">
-                    <div class="other">Note: Please enter the city name in pinyin, with the first letter capitalized</div>
-                    <h2 class="city">Weather in Shanghai</h2>
-                    <h1 class="temp">21°C</h1>
-                    <div class="flex">
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon" class="icon" />
-                        <div class="description">多云</div>
+        <section id="widgets" class="widgets">
+            <div class="two">
+                <div class="card">
+                    <div class="search">
+                        <input type="text" class="search-bar" placeholder="Search city..." aria-label="Search city for weather" />
+                        <button aria-label="Search weather">
+                            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1.5em" xmlns="https://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
                     </div>
-                    <div class="other">
-                        <div class="humidity">humidity: 60%</div>
-                        <div class="wind">wind: 6.2 km/h</div>
+                    <div class="weather loading">
+                        <div class="other">Note: Please enter the city name in pinyin, with the first letter capitalized</div>
+                        <h2 class="city">Weather in Shanghai</h2>
+                        <h1 class="temp">21°C</h1>
+                        <div class="flex">
+                            <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon" class="icon" />
+                            <div class="description">多云</div>
+                        </div>
+                        <div class="other">
+                            <div class="humidity">humidity: 60%</div>
+                            <div class="wind">wind: 6.2 km/h</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Contact section -->
+        <section id="contact" class="contact">
+            <div class="panel">
+                <h1 class="welcome">Get In Touch</h1>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:tang.jie@live.com">tang.jie@live.com</a></p>
+                        <p><strong>SJTU Email:</strong> <a href="mailto:tang.jie@sjtu.edu.cn">tang.jie@sjtu.edu.cn</a></p>
+                    </div>
+                    <div class="social-links">
+                        <h3>Connect with me:</h3>
+                        <a href="https://github.com/JackyTJie" class="social-link" target="_blank">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
     </main>
-    
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 TANGJIE. All rights reserved.</p>
+            <p>Designed with ❤️ at SJTU</p>
+        </div>
+    </footer>
+
     <!-- Analytics script -->
     <script>
         var _hmt = _hmt || [];
@@ -79,7 +522,7 @@
           s.parentNode.insertBefore(hm, s);
         })();
     </script>
-    
+
     <!-- Page loading and 3D tilt scripts -->
     <script>
         var preloader = document.getElementById('loading');
@@ -97,6 +540,60 @@
             speed: 400
         });
         VanillaTilt.init(document.querySelectorAll(".card"));
+    </script>
+    
+    <!-- Smooth scrolling script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <!-- Pie chart animation script -->
+    <script>
+        // Animate pie charts when they come into view
+        function animatePies() {
+            const pieCharts = document.querySelectorAll('.pie-chart');
+            
+            pieCharts.forEach(pie => {
+                const percent = pie.getAttribute('data-percent');
+                const fill = pie.querySelector('.pie-fill:after');
+                
+                // Reset rotation first
+                fill.style.transform = 'rotate(0deg)';
+                
+                // Animate to target rotation after a small delay
+                setTimeout(() => {
+                    const rotation = (percent / 100) * 360;
+                    fill.style.transform = `rotate(${rotation}deg)`;
+                }, 300);
+            });
+        }
+        
+        // Call animation when page loads
+        document.addEventListener('DOMContentLoaded', animatePies);
+        
+        // Also call animation when user scrolls to skills section
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animatePies();
+                        observer.unobserve(skillsSection);
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+            
+            observer.observe(skillsSection);
+        }
     </script>
 </body>
 </html>
