@@ -1,63 +1,63 @@
 <!doctype html>
 <html lang="zh-CN">
-    <TITLE>TANGJIE</TITLE>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://tangjie.xyz/css/style.css" />
-  </head>
-  <body>
-  <script  color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="http://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
-  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">HELLO WORLD!</h1><div class="big-title"><span id="iwgq">TANGJIE.XYZ</span></div><div align="center">Email address: tang.jie@live.com</div><br><div align="center"></div></div></div></div>
-  <div data-v-8e6b1646=""><div class="panel"><h1 class="welcome">Self Introduction</h1><br><div align="center"><p>Hi, I'm a student from SJTU. I love programming, cycling and meeting new people. I also enjoy digital hoarding, so I have many resouces of films, musics, and games. Welcome everyone to contact me for resources or just to chat!</p></div></div></div>
-  <body bgcolor="EEEEEE">
 <head>
     <meta charset="UTF-8" />
+    <title>TANGJIE</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="viewport" content="width=device-width,user-scalable=no">
-    <meta name="keywords" content="工具" />
-    <meta name="description" content="工具" /> 
-     <link rel="icon" href="https://wanghao221.github.io/Weather.io/icon.png">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet" href="https://tangjie.xyz/css/style2.css" />
-        <script src="https://tangjie.xyz/js/script.js" defer></script>
-    	<script>
-	var _hmt = _hmt || [];
-	(function() {
-	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?a9430a37066911650e26adadcc42798a";
-	  var s = document.getElementsByTagName("script")[0]; 
-	  s.parentNode.insertBefore(hm, s);
-	})();
-	</script></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="TANGJIE, portfolio, SJTU, programming" />
+    <meta name="description" content="Personal website of TANGJIE - Student at SJTU passionate about programming, cycling and meeting new people." />
+    <link rel="icon" href="data/R-C.jfif" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,500;0,600;0,700;0,800;0,900;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://tangjie.xyz/css/style.css" />
+    <link rel="stylesheet" href="https://tangjie.xyz/css/style2.css" />
+    <script src="https://tangjie.xyz/js/script.js" defer></script>
+</head>
+<body bgcolor="EEEEEE" onload="myFunction()">
+    <!-- Background animation -->
+    <script color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="http://cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
     
-    <body onload="myFunction()">
-        <div id="loading"></div>
+    <!-- Loading screen -->
+    <div id="loading"></div>
+    
+    <!-- Main content container -->
+    <main>
+        <!-- Welcome section -->
+        <div class="panel">
+            <h1 class="welcome">HELLO WORLD!</h1>
+            <div class="big-title">
+                <span id="iwgq">TANGJIE.XYZ</span>
+            </div>
+            <div align="center">Email address: <a href="mailto:tang.jie@live.com">tang.jie@live.com</a></div>
+        </div>
+        
+        <!-- About section -->
+        <div class="panel">
+            <h1 class="welcome">Self Introduction</h1>
+            <div align="center">
+                <p>Hi, I'm a student from SJTU. I love programming, cycling and meeting new people. I also enjoy digital hoarding, so I have many resouces of films, musics, and games. Welcome everyone to contact me for resources or just to chat!</p>
+            </div>
+        </div>
+        
+        <!-- Weather widget section -->
         <div class="two">
             <div class="card">
                 <div class="search">
-                    <input type="text" class="search-bar" placeholder="Search" />
-                    <button>
-                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em"
-                            width="1.5em" xmlns="https://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z"
-                                clip-rule="evenodd"></path>
-                            <path fill-rule="evenodd"
-                                d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z"
-                                clip-rule="evenodd"></path>
+                    <input type="text" class="search-bar" placeholder="Search city..." aria-label="Search city for weather" />
+                    <button aria-label="Search weather">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1.5em" xmlns="https://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path>
+                            <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path>
                         </svg>
                     </button>
                 </div>
                 <div class="weather loading">
-    				<div class="other">Note: Please enter the city name in pinyin, with the first letter capitalized</div>
+                    <div class="other">Note: Please enter the city name in pinyin, with the first letter capitalized</div>
                     <h2 class="city">Weather in Shanghai</h2>
                     <h1 class="temp">21°C</h1>
                     <div class="flex">
-                        <img src="https://openweathermap.org/img/wn/04d.png" alt="" class="icon" />
+                        <img src="https://openweathermap.org/img/wn/04d.png" alt="Weather icon" class="icon" />
                         <div class="description">多云</div>
                     </div>
                     <div class="other">
@@ -67,21 +67,36 @@
                 </div>
             </div>
         </div>
-        <script>
-            var preloader = document.getElementById('loading');
-            function myFunction() {
-                preloader.style.display = 'none';
-            }
-        </script>
-        <script type="text/javascript" src="https://wanghao221.github.io/Weather.io/js/vanilla-tilt.js"></script>
-        <script type="text/javascript">
-            VanillaTilt.init(document.querySelector(".card"), {
-                max: 15,
-                glare: true,
-                reverse: true,
-                "max-glare": 0.5,
-                speed: 400
-            });
-            VanillaTilt.init(document.querySelectorAll(".card"));
-        </script>
-  </body>
+    </main>
+    
+    <!-- Analytics script -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a9430a37066911650e26adadcc42798a";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+    <!-- Page loading and 3D tilt scripts -->
+    <script>
+        var preloader = document.getElementById('loading');
+        function myFunction() {
+            preloader.style.display = 'none';
+        }
+    </script>
+    <script type="text/javascript" src="https://wanghao221.github.io/Weather.io/js/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".card"), {
+            max: 15,
+            glare: true,
+            reverse: true,
+            "max-glare": 0.5,
+            speed: 400
+        });
+        VanillaTilt.init(document.querySelectorAll(".card"));
+    </script>
+</body>
+</html>
