@@ -53,6 +53,3 @@ This website is hosted on GitHub Pages. To run locally:
 - SJTU Email: tang.jie@sjtu.edu.cn
 - GitHub: [JackyTJie](https://github.com/JackyTJie)
 
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
